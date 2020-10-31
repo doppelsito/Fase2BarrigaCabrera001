@@ -2,10 +2,11 @@ from django.shortcuts import render
 from .models import *
 from django.views import generic
 from django.utils import timezone
-from .models import Post, Analisis
+from .models import Post, Analisis, User
 from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.models import User
 from django.core.paginator import Paginator
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # Create your views here.
 def index(request):
 
@@ -48,5 +49,21 @@ def analisisPost(request,slug):
     )
     print(post)
     return render(request,'juego.html',{'analisis_post':post, 'posts': posts})
+
+class UserCreate(CreateView):
+    model = User
+    fields = ['usuario','apellido','nacimiento']
+
+class UserUpdate(UpdateView):
+    model = User
+    fields = ['usuario','apellido','nacimiento']
+
+class UserDelete(DeleteView):
+    model = User
+    success_url = reverse_lazy('index')
+
+class UserDetailView(generic.DetailView):
+    model = User
+
 
 

@@ -10,4 +10,11 @@ urlpatterns = [
     path('login',views.formularios,name='formulario'),
     path('detallePost/<slug:slug>/', views.detallePost, name='detalle_post'),
     path('analisisPost/<slug:slug>/', views.analisisPost, name = 'analisis_post'),
+    path('user/<int:pk>', views.UserDetailView.as_view(), name = 'user_detail'),
+]
+
+urlpatterns += [
+    path('user/create/',views.UserCreate.as_view(),name='user_create'),
+    path('user/<int:pk>/update/',views.UserUpdate.as_view(),name='user_update'),
+    path('user/<int:pk>/delete/',views.UserDelete.as_view(),name='user_delete'),
 ]

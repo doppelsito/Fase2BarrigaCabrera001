@@ -10,7 +10,22 @@ class Genero(models.Model):
 
     def __str__(self):
         return self.nombre
-        
+
+class User(models.Model):
+	"""Model representing an usuario."""
+	usuario = models.CharField(max_length=100)
+	apellido = models.CharField(max_length=100)
+	nacimiento = models.DateField('Nacimiento', null=True, blank=True)
+    #asd
+	class Meta:
+		ordering = ['usuario', 'apellido']
+
+	def get_absolute_url(self):
+		return reverse('user_detail', args=[str(self.id)])
+
+	def __str__(self):
+		"""String for representing the Model object."""
+		return f'{self.usuario}, {self.apellido}'
 
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
