@@ -1,8 +1,7 @@
 from django.contrib import admin
-from . models import Autor, Genero, Noticia
-
+from . models import Genero, Post, Analisis
 # Register your models here.
 
-admin.site.register(Autor)
 admin.site.register(Genero)
-admin.site.register(Noticia)
+admin.site.register(Post)
+admin.site.register(Analisis)

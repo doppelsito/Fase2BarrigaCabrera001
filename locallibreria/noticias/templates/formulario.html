@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}      
+<header>
+  <!-----------------       Video     ----------------->
+  <div class="header">
+    <div class="header-contenedor">
+      <h1 style="font-size:10vw;">GAME BROS</h1>
+      <h1 style="font-size:10vw;">GAME BROS</h1>
+      <h1 style="font-size:10vw;">GAME BROS</h1>
+      <h1 style="font-size:10vw;">GAME BROS</h1>
+      <h1 style="font-size:10vw;">GAME BROS</h1>
+      <h1 style="font-size:10vw;">GAME BROS</h1>
+      <h1 style="font-size:10vw;">GAME BROS</h1>
+      <h5 style="font-size:3vw;">- Con la información para matar al boss -</h5>
+    </div>
+  </div>
+  <div class="video-container">
+    <video  autoplay loop muted poster="{% static 'img/poster.jpg' %}">
+    <source src="{% static 'Video/VideoHeader2.mp4' %}" type="video/mp4"></source>
+    </video>
+  </div>
+</header>
+{% endblock %}
