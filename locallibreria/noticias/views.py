@@ -50,13 +50,14 @@ def analisisPost(request,slug):
     print(post)
     return render(request,'juego.html',{'analisis_post':post, 'posts': posts})
 
+
 class UserCreate(CreateView):
     model = User
-    fields = ['usuario','apellido','nacimiento']
+    fields = ['usuario','apellido','nacimiento','telefono','direccion']
 
 class UserUpdate(UpdateView):
     model = User
-    fields = ['usuario','apellido','nacimiento']
+    fields = ['usuario','apellido','nacimiento','telefono','direccion']
 
 class UserDelete(DeleteView):
     model = User

@@ -12,24 +12,19 @@ class Genero(models.Model):
         return self.nombre
 
 class User(models.Model):
-	"""Model representing an usuario."""
-	usuario = models.CharField(max_length=100)
-	apellido = models.CharField(max_length=100)
-	nacimiento = models.DateField('Nacimiento', null=True, blank=True)
-    #asd
-	class Meta:
-		ordering = ['usuario', 'apellido']
+    usuario = models.CharField(max_length=100, null=True, blank=True)
+    apellido = models.CharField(max_length=100, blank = False, null = False)
+    telefono = models.CharField(max_length=10, null=True, blank=True)
+    direccion = models.CharField(max_length=100, null=True, blank=True)
+    nacimiento = models.DateField('Nacimiento', null=True, blank=True)
 
-	def get_absolute_url(self):
-		return reverse('user_detail', args=[str(self.id)])
-
-	def __str__(self):
-		"""String for representing the Model object."""
-		return f'{self.usuario}, {self.apellido}'
+    class Meta: ordering = ['usuario', 'apellido']
+    def get_absolute_url(self):return reverse('user_detail', args=[str(self.id)])
+    def __str__(self):return f'{self.usuario}, {self.apellido}'
 
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
-    autor = models.ForeignKey('auth.User', on_delete=models.SET_NULL, null=True)
+    autor = models.ForeignKey('User', on_delete=models.SET_NULL, null=True)
     nombrejuego = models.CharField(max_length=200)
     titulo = models.CharField(max_length=200)
     slug = models.CharField('Slug', max_length = 100, blank = False, null = False)

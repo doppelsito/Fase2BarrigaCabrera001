@@ -14,7 +14,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('user/create/',views.UserCreate.as_view(),name='user_create'),
+    path('crear_usuario',views.UserCreate.as_view(),name='user_form'),
     path('user/<int:pk>/update/',views.UserUpdate.as_view(),name='user_update'),
     path('user/<int:pk>/delete/',views.UserDelete.as_view(),name='user_delete'),
 ]

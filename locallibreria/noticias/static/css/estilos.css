@@ -381,15 +381,15 @@ div.vertical-line{
 }
 }
 
-#formularios{
-    padding-top: 3%;
+.formularios{
+    padding-top: 1000px;
 }
 
 button{
     width: auto;
 }
 
-#contenedor{
+.contenedor{
     width: 500px;
     margin: 0 auto;
     padding-top: 0px;
