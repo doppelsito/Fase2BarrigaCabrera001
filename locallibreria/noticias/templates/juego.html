@@ -7,7 +7,9 @@
       <div class="container col-12 col-sm-10 col-md-9 col-lg-8 col-xl-7 d-block">
         <div class="image-center">
           <div class="portada">
-            <img src="{% static 'img/portada.jpg' %}" class="img-fluid" alt="portada">
+            {% if analisis_post.imagen %}
+              <img src="{{ analisis_post.imagen.url }}" class="img-fluid" alt="portada">
+            {% endif %}
           </div>
           <div class="center">
             <h2 class="color">{{ analisis_post.nombrejuego }}</h2>
@@ -40,7 +42,7 @@
             </div>
           </div>
           <!-- cuerpo -->
-        <p class="color2">{{ analisis_post.contenido }}</p>
+        <div class="color2">{{ analisis_post.contenido| safe }}</div>
       </div>
     </div>
   </div>
@@ -48,4 +50,7 @@
 {% endblock %}
 
 {% block noticias %} 
+{% endblock %}
+
+{% block analisisdejuegos %} 
 {% endblock %}
